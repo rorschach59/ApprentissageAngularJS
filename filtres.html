@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Débuter sur AngularJS</title>
+</head>
+<body ng-app="filtres">
+
+    <div ng-controller="mainController">
+      <input ng-model="limit">
+      <table>
+        <!-- limitTo :3 limite le résultat à 3 musiciens -->
+        <!-- limitTo :limit, récupére le ng-model passé dans l'input -->
+        <tr ng-repeat="musician in musicians | limitTo : limit">
+          <!-- uppercase affiche le résultat en MAJUSCULE -->
+          <td> {{ musician.fullName | uppercase }} : {{ musician.instrument}} </td>
+        </tr>
+      </table>
+
+      <input ng-model="letters">
+      <table>
+        <!-- filter :letters, récupére le ng-model passé l'input -->
+        <tr ng-repeat="musician in musicians | filter : letters">
+          <!-- uppercase affiche le résultat en MAJUSCULE -->
+          <td> {{ musician.fullName | uppercase }} : {{ musician.instrument}} </td>
+        </tr>
+      </table>
+
+      <hr>
+      <table>
+        <!-- orderBy : range par ordre alphabétique le nom des instruments, -instrument pour ranger par ordre non alphabétique
+        On peut également chainer les filtres à la suite en utilisant le ou |
+        -->
+        <tr ng-repeat="musician in musicians | orderBy : 'instrument'">
+          <!-- uppercase affiche le résultat en MAJUSCULE -->
+          <td> {{ musician.fullName | uppercase }} : {{ musician.instrument}} </td>
+        </tr>
+      </table>
+    </div>
+
+<script src="node_modules/angular/angular.js"></script>
+<script src="js/filtres.js"></script>
+</body>
+</html>

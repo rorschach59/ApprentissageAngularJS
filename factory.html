@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Débuter sur AngularJS</title>
+</head>
+<body ng-app="factory">
+
+    <div ng-controller="mainController">
+      <table>
+        <!-- Récupére chaque musicien dans le tableau musicians de musiciansFactory.js -->
+        <tr ng-repeat="musician in musicians">
+          <!-- On demande d'afficher le fullName et l'instrument-->
+          <td> {{ musician.fullName }} : {{ musician.instrument}} </td>
+        </tr>
+      </table>
+    </div>
+
+<script src="node_modules/angular/angular.js"></script>
+<script src="services/musiciansFactory.js"></script>
+<script src="js/factory.js"></script>
+</body>
+</html>

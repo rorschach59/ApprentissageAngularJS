@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Débuter sur AngularJS</title>
+</head>
+<body ng-app="factory">
+
+    <div ng-controller="mainController">
+
+      <form name="newMusicianForm">
+        <fieldset>
+          <label for="fullName">Nom et Prénom :</label><br>
+          <input type="text" id="fullName" ng-model="newMusician.fullName"><br>
+          <label for="instrument">Instrument :</label><br>
+          <input type="text" id="instrument" ng-model="newMusician.instrument"><br>
+          <button type="submit" name="button" ng-click="addMusician(newMusician)">Créer</button>
+        </fieldset>
+      </form>
+
+      <table>
+        <tr ng-repeat="musician in musicians">
+          <td> {{ musician.fullName }} : {{ musician.instrument}} </td>
+        </tr>
+      </table>
+    </div>
+
+<script src="node_modules/angular/angular.js"></script>
+<script src="services/musiciansFactory.js"></script>
+<script src="js/factory.js"></script>
+<script src="js/formulaire.js"></script>
+</body>
+</html>
